@@ -4,9 +4,623 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kannan Murugapandian - Student Developer & Environmental Advocate. Portfolio showcasing programming skills and environmental initiatives.">
+    <meta name="keywords" content="Kannan Murugapandian, developer, environmental advocate, programming, AI, Singapore">
     <title>Kannan Murugapandian | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 
+        NOTES ON ASSUMPTIONS MADE:
+        - Used a professional headshot placeholder since no photo was provided
+        - Assumed preference for a modern, tech-focused color scheme
+        - Created project descriptions based on resume information
+        - Estimated project completion status based on timeline information
+        */
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            font-weight: 300;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-info {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-role {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-achievements {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-achievements li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .project-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Accepted Into & Certifications Sections */
+        .accepted,
+        .certifications {
+            background: var(--bg-secondary);
+        }
+
+        .accepted-grid,
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .accepted-item,
+        .cert-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .accepted-icon,
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .accepted-name,
+        .cert-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .accepted-details {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+                font-size: 6rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -17,7 +631,7 @@
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#accepted" class="nav-link">Accepted Into</a></li>
                     <li><a href="#certifications" class="nav-link">Certifications</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -35,56 +649,88 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-					<div class="hero-image">
-                        <div class="image-placeholder">
-                            <img src="https://pplx-res.cloudinary.com/image/upload/v1749623238/pplx_project_search_images/470fb2dd3f94841ef7a37244816e409ad43163c0.jpg" alt="Environmental Project">
-                        </div>
-                    </div>
                     <div class="hero-text">
                         <h1>Kannan Murugapandian</h1>
-                        <h2>Student Developer</h2>
+                        <h2>Student Developer & Environmental Advocate</h2>
                         <p>Combining technical expertise with environmental passion to create innovative solutions for a sustainable future.</p>
                         <div class="hero-buttons">
-                            <a href="#projects" class="btn btn--primary">View Projects</a>
-                            <a href="#contact" class="btn btn--outline">Get in Touch</a>
+                            <a href="#projects" class="btn btn-primary">
+                                <i class="fas fa-code"></i> View My Work
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="profile-image">
+                            KM
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- About Section -->
-        <section id="about" class="about">
+        <section id="about" class="section about">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about technology and environmental conservation</p>
+                
                 <div class="about-content">
-                    <div class="about-text">
-                        <p>I’m Kannan Murugapandian, a student at <b>DPS International School, Singapore</b>, bronze medialist at the National Olympiad in Informatics (NOI) 2024, a state topper in the International Informatics Olympiad (iiO) 2023 and <a href="https://www.credential.net/8ac99c46-69ce-4a0d-9aec-286774f27362">CSARC-certified in Arduino Microcontroller (Grade 2)</a>. My projects include <a href="https://donumai.pythonanywhere.com"><b>DonumAI</b></a>, an AI-powered teaching assistant that delivers tailored lessons, and initiatives like <a href = "https://earthstatus.wordpress.com"><b>Earth Status</b></a> and <b>PlantyyGo</b>, where I applied my skills in app and web development. I enjoy building innovative solutions, exploring new technologies, and using my knowledge in AI to address real-world challenges.</p>
-                        
-                        <h3>Education</h3>
-                        <div class="education">
-                            <div class="education-item">
-                                <h4>DPS International School, Singapore</h4>
-                                <p>ISC (Indian School Certificate)</p>
-                                <span class="education-period">April 2025 - March 2027</span>
-                            </div>
-                            <div class="education-item">
-                                <h4>DPS International School Singapore)</h4>
-                                <p>ICSE (Indian Certificate of Secondary Education)</p>
-                                <span class="education-period">2016 - March 2025</span>
-								<span class="education-period">Grade: 93.2%</span>
-                            </div>
+                    <div class="about-info">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Education</h3>
+                        <div class="education-item">
+                            <div class="education-title">ISC (Indian School Certificate)</div>
+                            <div class="education-school">DPS International School, Singapore</div>
+                            <div class="education-period">April 2025 - March 2027</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-title">ICSE (Indian Certificate of Secondary Education)</div>
+                            <div class="education-school">DPS International School Singapore</div>
+                            <div class="education-period">2016 - March 2025</div>
                         </div>
                         
-                        <h3>Languages</h3>
-                        <div class="languages">
-                            <div class="language-item">
-                                <span class="language-name">English</span>
-                                <span class="language-level">Professional Working</span>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; margin-top: 2rem;">Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tamil (Native)</span>
+                            <span class="skill-tag">English (Professional)</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="about-text">
+                            An energetic youth who is currently pursuing his education in DPS International School, Singapore from 2016. I am a blogger, reader and a programmer. Academically, I have secured two scholar badges and a class topper award in iiO (International Informatics Olympiad). Apart from studies, my area of interests are programming, ethical hacking and app development. I have created a couple of apps using JAVA, Python and working on some more also.
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>Top Skills</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Artificial Intelligence</span>
+                                    <span class="skill-tag">Google Gemini</span>
+                                    <span class="skill-tag">Generative AI</span>
+                                </div>
                             </div>
-                            <div class="language-item">
-                                <span class="language-name">Tamil</span>
-                                <span class="language-level">Native</span>
+                            
+                            <div class="skill-category">
+                                <h3>Technical Skills</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Web Development</span>
+                                    <span class="skill-tag">Ethical Hacking</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Soft Skills</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Leadership</span>
+                                    <span class="skill-tag">Project Management</span>
+                                    <span class="skill-tag">Content Creation</span>
+                                    <span class="skill-tag">Public Speaking</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,228 +739,162 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects">
+        <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">Innovative solutions combining technology and environmental consciousness</p>
+                
                 <div class="projects-grid">
-				<!-- Project 1 -->
                     <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">DonumAI</h3>
-                            <p class="project-role">Creator</p>
-                            <p class="project-period">August 2023 - Present</p>
-                            <p class="project-description">While many schools teach the same curriculum, they are not bound to have the same qualified teachers. This leads to an unfair advantage to some students. Ultimately, many of the less fortunate students turn to various tuition centers. Unfortunately, here too it is not necessary for all these studnets to go to the same tutition center which has passionate tutors.</p>
-							<p class="project-description">My solution to this problem is the AI-Powered Personalized Lesson Constructor - DonumAI (DAI). DAI caters to the diverse learning styles and academic requirements of students across different grades and subjects. The system operates on a simple principle: it generates lessons specifically crafted to enhance the student's comprehension of the given topic.</p>
-							<p class="project-description">Key Features:</p>
-							<ul class="project-achievements">
-								<li><b>Personalized Learning:</b> Tailored to Your Understanding Level</li>
-								<li><b>Emotionless, Bias-Free Teaching:</b> Fairness for All Students</li>
-								<li><b>AI Teacher for All Grades:</b> From Elementary to Advanced Education</li>
-							</ul>
-							<p class="project-description">DonumAI presented in:</p>
-							<ul class="project-achievements">
-								<li>DPS Int'l School Tech Week 2023</li>
-								<li>DPS Int'l School Jan 2024 Openhouse Exhibition</li>
-							</ul> 
-                            <a href="https://donumai.pythonanywhere.com" target="_blank" class="project-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-					
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">🌍</div>
                             <h3 class="project-title">Earth Status</h3>
                             <p class="project-role">Co-Founder and Co-Head</p>
-                            <p class="project-period">December 2021 - Present</p>
-                            <p class="project-description">As the Co-founder and Co-head at Earth Status, my role encompasses a diverse range of responsibilities that directly contribute to our mission of fostering a greener future.</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Leading transformative change in environmental advocacy. Earth Status focuses on fostering a greener future through innovative digital solutions and community engagement.
+                            </p>
                             <ul class="project-achievements">
-                                <li>Led the creation and launch of the mobile app for Earth Status, now readily accessible on the Google Play Store.</li>
-                                <li>Part of establishing an online presence through a WordPress-based blog and Social Medias.</li>
-                                <li>Designed visual posters for all Earth Status campaigns.</li>
-                                <li>Responsible for Earth Status' LinkedIn account and WhatsApp Channel.</li>
-                                <li>Led the YouTube team to amplify Earth Status' mission.</li>
+                                <li>Developed and launched mobile app on Google Play Store</li>
+                                <li>Established impactful online presence through WordPress blog</li>
+                                <li>Designed compelling visual posters for campaigns</li>
+                                <li>Managed LinkedIn account and WhatsApp Channel</li>
+                                <li>Led YouTube team for visual storytelling</li>
                             </ul>
-                            <a href="https://earthstatus.wordpress.com" target="_blank" class="project-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                            <div class="project-links">
+                                <a href="https://earthstatus.wordpress.com" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Visit Website
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
                     <div class="project-card">
-                        <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">☀️</div>
                             <h3 class="project-title">EZTime</h3>
                             <p class="project-role">Founder and Head</p>
-                            <p class="project-period">September 2022 - Present</p>
-                            <p class="project-description">EZTime calculates your  apparent solar time calculated with your longitude when you visit the webiste. This project was created because I wished to perform some research on the effect of apparent solar time with human body clock by using technology.</p>
-							<p class="project-description">To calculate Apparent Solar Time, you can use the following formula:</p>
-							<code>Apparent Solar Time = Standard Time + (4 * (Longitude - Standard Meridian))</code>
-							<p class="project-description">In this formula:</p>
-							<ul class="project-achievements">
-								<li>Apparent Solar Time: The time based on the position of the sun in the sky at a specific location.</li>
-								<li>Standard Time: The time in the time zone of the location.</li>
-								<li>Equation of Time: A correction factor accounting for the elliptical orbit of the Earth and axial tilt.</li>
-								<li>Longitude: The longitude of the location in degrees.</li>
-								<li>Standard Meridian: The meridian in your time zone (usually a multiple of 15 degrees).</li>
-							</ul>
-                            <a href="https://eztime.pythonanywhere.com" target="_blank" class="project-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                A precise solar time calculator that determines exact solar time based on your longitude. Perfect for astronomical observations and understanding local solar patterns.
+                            </p>
+                            <ul class="project-achievements">
+                                <li>Developed accurate solar time calculation algorithm</li>
+                                <li>Created user-friendly web interface</li>
+                                <li>Implemented responsive design for all devices</li>
+                                <li>Ongoing maintenance and feature updates</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://eztime.pythonanywhere.com" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Try EZTime
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
                     <div class="project-card">
-                        <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">🌱</div>
                             <h3 class="project-title">PlantyyGo</h3>
-                            <p class="project-role">Co-Founder</p>
-                            <p class="project-period">September 2022 - May 2023</p>
-                            <p class="project-description">As Co-Creator at PlantyyGo, I shaped technical landscape of the platform, ensuring its efficiency, security, and continuous evolution.</p>
+                            <p class="project-role">Founder</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                An environmental platform focused on sustainability and eco-friendly solutions. Managed the complete technical landscape ensuring efficiency, security, and continuous evolution.
+                            </p>
                             <ul class="project-achievements">
-                                <li>Oversaw and manage the website's operations, ensuring its security, functionality, and optimal performance.</li>
-                                <li>Led the technical team of PlantyyGo.</li>
-                                <li>Conceptualized and developed 'Mr. Meme'.</li>
+                                <li>Oversaw website security and functionality</li>
+                                <li>Implemented robust security measures</li>
+                                <li>Integrated new technologies for enhanced capabilities</li>
+                                <li>Developed creative features including 'Mr. Meme'</li>
                             </ul>
-                            <a href="https://plantyygo.pythonanywhere.com" target="_blank" class="project-link">Visit Website (Not functional)<i class="fas fa-external-link-alt"></i></a>
+                            <div class="project-links">
+                                <a href="https://plantyygo.pythonanywhere.com" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Explore Platform
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
                     <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🚀</div>
+                            <h3 class="project-title">Save The Earth Programme</h3>
+                            <p class="project-role">Web Developer</p>
+                        </div>
                         <div class="project-content">
-                            <h3 class="project-title">Save The Earth Programme (STEP)</h3>
-                            <p class="project-role">Web and Content Developer</p>
-                            <p class="project-period">October 2021 - December 2021</p>
-                            <p class="project-description">In my role as Web Developer at STEP, I was in charge of the technological aspects, ensuring a seamless integration of innovation and impact.</p>
+                            <p class="project-description">
+                                Managed the technological aspects of STEP, ensuring a seamless integration of innovation and environmental impact through digital solutions.
+                            </p>
                             <ul class="project-achievements">
-                                <li>Full responsibility for managing the technology landscape within STEP.</li>
-                                <li>Created a dynamic and engaging blog for STEP.</li>
-                                <li>Crafted a compelling PowerPoint Presentation for a webinar.</li>
-                                <li>Designed an interactive game for webinar attendees.</li>
+                                <li>Created dynamic and engaging blog platform</li>
+                                <li>Developed PowerPoint presentation for school webinar</li>
+                                <li>Designed interactive games for audience engagement</li>
+                                <li>Managed complete technology infrastructure</li>
                             </ul>
-							<a href="https://savetheearthprogramme.wordpress.com/" target="_blank" class="project-link">Visit Website (Archived)<i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
 
-                    <!-- Project 5 -->
                     <div class="project-card">
-                        <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">📝</div>
                             <h3 class="project-title">Personal Blog</h3>
-                            <p class="project-role">Blogger</p>
-                            <p class="project-description">I maintain a personal blog where I share my thoughts, experiences, and insights on various topics of interest.</p>
-                            <a href="https://mybookfield.wordpress.com" target="_blank" class="project-link">Visit Blog <i class="fas fa-external-link-alt"></i></a>
+                            <p class="project-role">Content Creator & Blogger</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Maintaining a personal blog where I share insights, experiences, and thoughts on technology, programming, and environmental issues.
+                            </p>
+                            <ul class="project-achievements">
+                                <li>Regular content creation and publishing</li>
+                                <li>Covering diverse topics from tech to environment</li>
+                                <li>Building engaged readership community</li>
+                                <li>Sharing knowledge and experiences</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://mybookfield.wordpress.com" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Read Blog
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
+        <!-- Accepted Into Section -->
+        <section id="accepted" class="section accepted">
             <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-content">
-                    <div class="skills-category">
-                        <h3>Top Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                                <div class="skill-info">
-                                    <h4>Competitive Programming</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                                <div class="skill-info">
-                                    <h4>Arduino</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-                                <div class="skill-info">
-                                    <h4>Artificial Intelligence</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                <h2 class="section-title">Accepted Into</h2>
+                <p class="section-subtitle">A showcase of acceptances to pre-college programs and universities.</p>
+                
+                <div class="accepted-grid">
+                    <!-- 
+                    TO DO: Replace these placeholder items with your actual acceptances.
+                    You can copy and paste an "accepted-item" div for each new acceptance.
+                    Example:
+                    <div class="accepted-item">
+                        <div class="accepted-icon"><i class="fas fa-university"></i></div>
+                        <div>
+                            <div class="accepted-name">Stanford University Pre-Collegiate Summer Institutes</div>
+                            <div class="accepted-details">Artificial Intelligence Track, 2025</div>
                         </div>
                     </div>
-
-                    <div class="skills-category">
-                        <h3>Technical Skills</h3>
-                        <div class="skills-grid">
-						<div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                                <div class="skill-info">
-                                    <h4>Python</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-java"></i></div>
-                                <div class="skill-info">
-                                    <h4>Java</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 50%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-globe"></i></div>
-                                <div class="skill-info">
-                                    <h4>Web Development</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-laptop"></i></div>
-                                <div class="skill-info">
-                                    <h4>Vibe Coding</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                    -->
+                    <div class="accepted-item">
+                        <div class="accepted-icon"><i class="fas fa-university"></i></div>
+                        <div>
+                            <div class="accepted-name">Placeholder University Program</div>
+                            <div class="accepted-details">Summer 2026</div>
                         </div>
                     </div>
-
-                    <div class="skills-category">
-                        <h3>Soft Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-users"></i></div>
-                                <div class="skill-info">
-                                    <h4>Leadership</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 88%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
-                                <div class="skill-info">
-                                    <h4>Project Management</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 92%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-microphone"></i></div>
-                                <div class="skill-info">
-                                    <h4>Public Speaking</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                     <div class="accepted-item">
+                        <div class="accepted-icon"><i class="fas fa-flask"></i></div>
+                        <div>
+                            <div class="accepted-name">Future Scientist Pre-College</div>
+                            <div class="accepted-details">Computer Science Cohort</div>
                         </div>
                     </div>
                 </div>
@@ -322,136 +902,126 @@
         </section>
 
         <!-- Certifications Section -->
-        <section id="certifications" class="certifications">
+        <section id="certifications" class="section certifications">
             <div class="container">
                 <h2 class="section-title">Certifications & Awards</h2>
-                <div class="certifications-content">
-                    <div class="certifications-list">
-                        <h3>Professional Certifications</h3>
-                        <ul>
-                            <li>
-                                <div class="certification-item">
-                                    <span class="certification-icon"><i class="fas fa-certificate"></i></span>
-                                    <span class="certification-name"><a href="https://www.credential.net/8ac99c46-69ce-4a0d-9aec-286774f27362">CSARC: Arduino Microcontroller (Grade 2)</a></span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="certification-item">
-                                    <span class="certification-icon"><i class="fas fa-certificate"></i></span>
-                                    <span class="certification-name">Certificate of Participation - NOI 2023</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="certification-item">
-                                    <span class="certification-icon"><i class="fas fa-certificate"></i></span>
-                                    <span class="certification-name">Certificate of Achievement - IOI '22</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="certification-item">
-                                    <span class="certification-icon"><i class="fas fa-certificate"></i></span>
-                                    <span class="certification-name">Certificate of Achievement - Friend Of Singa 2023</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="certification-item">
-                                    <span class="certification-icon"><i class="fas fa-certificate"></i></span>
-                                    <span class="certification-name">Certificate of Achievement for the creation of EZTime</span>
-                                </div>
-                            </li>
-                        </ul>
+                <p class="section-subtitle">Continuous learning and professional development</p>
+                
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <div class="cert-name">White Hat Hacker and Pen Tester</div>
+                        </div>
                     </div>
                     
-                    <div class="awards-list">
-                        <h3>Awards & Achievements</h3>
-                        <ul>
-                            <li>
-                                <div class="award-item">
-                                    <span class="award-icon"><i class="fas fa-trophy"></i></span>
-                                    <span class="award-name">NOI MEDAL CERTIFICATE - Bronze Medal (2024)</span>
-                                </div>
-                            </li>
-							<li>
-                                <div class="award-item">
-                                    <span class="award-icon"><i class="fas fa-medal"></i></span>
-                                    <span class="award-name">First position - Junior Interhouse Techathon 2024</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="award-item">
-                                    <span class="award-icon"><i class="fas fa-award"></i></span>
-                                    <span class="award-name">International Informatics Olympiad (iiO) '23 - State Medal (State Topper)</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="award-item">
-                                    <span class="award-icon"><i class="fas fa-award"></i></span>
-                                    <span class="award-name">International Informatics Olympiad (iiO) '22 - State Medal (Second in State)</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="award-item">
-                                    <span class="award-icon"><i class="fas fa-medal"></i></span>
-                                    <span class="award-name">International Informatics Olympiad (iiO) '21 (Class Topper)</span>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fab fa-git-alt"></i></div>
+                        <div>
+                            <div class="cert-name">GIT for Beginners</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div>
+                            <div class="cert-name">Computer Week-TECH MINDS</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-microphone"></i></div>
+                        <div>
+                            <div class="cert-name">Oli Junior Presenter Workshop</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fab fa-linux"></i></div>
+                        <div>
+                            <div class="cert-name">Linux for Absolute Beginners</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-trophy"></i></div>
+                        <div>
+                            <div class="cert-name">iiO Class Topper Award 2021</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-medal"></i></div>
+                        <div>
+                            <div class="cert-name">International Informatics Olympiad State Medal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">Scholar Badge (Multiple Years)</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <section id="contact" class="section">
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <a href="mailto:mkannan2k9@gmail.com">mkannan2k9@gmail.com</a>
-                            </div>
+                <p class="section-subtitle">Let's connect and collaborate on innovative projects</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/mk029" target="_blank">linkedin.com/in/mk029</a>
-                            </div>
+                        <h3 class="contact-title">Email</h3>
+                        <a href="mailto:mkannan2k9@gmail.com" class="contact-link">
+                            mkannan2k9@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Earth Status</h3>
-                                <a href="https://earthstatus.wordpress.com" target="_blank">earthstatus.wordpress.com</a>
-                            </div>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/mk029" class="contact-link" target="_blank">
+                            linkedin.com/in/mk029
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-link"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Personal Links</h3>
-                                <a href="https://linktr.ee/mkannan" target="_blank">linktr.ee/mkannan</a>
-                            </div>
+                        <h3 class="contact-title">Company</h3>
+                        <a href="https://earthstatus.wordpress.com" class="contact-link" target="_blank">
+                            earthstatus.wordpress.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-link"></i>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-blog"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Blog</h3>
-                                <a href="https://mybookfield.wordpress.com" target="_blank">mybookfield.wordpress.com</a>
-                            </div>
+                        <h3 class="contact-title">Personal Links</h3>
+                        <a href="https://linktr.ee/mkannan" class="contact-link" target="_blank">
+                            linktr.ee/mkannan
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-blog"></i>
                         </div>
+                        <h3 class="contact-title">Blog</h3>
+                        <a href="https://mybookfield.wordpress.com" class="contact-link" target="_blank">
+                            mybookfield.wordpress.com
+                        </a>
                     </div>
                 </div>
             </div>
@@ -460,18 +1030,84 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Kannan Murugapandian. All Rights Reserved.</p>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/mk029" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://earthstatus.wordpress.com" target="_blank"><i class="fas fa-globe"></i></a>
-                    <a href="https://mybookfield.wordpress.com" target="_blank"><i class="fas fa-blog"></i></a>
-                    <a href="https://linktr.ee/mkannan" target="_blank"><i class="fas fa-link"></i></a>
-                </div>
-            </div>
+            <p>&copy; 2025 Kannan Murugapandian. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Update active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('main > section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Initialize first section as visible
+        document.querySelector('#home').style.opacity = '1';
+        document.querySelector('#home').style.transform = 'translateY(0)';
+    </script>
 </body>
 </html>
