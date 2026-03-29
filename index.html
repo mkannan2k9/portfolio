@@ -3,212 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kannan Murugapandian</title>
+    <title>Kannan Murugapandian - Portfolio</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            color: #2c2c2c;
-            max-width: 900px;
+        /* LaTeX-style CSS Reset & Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #000000;
+            --meta-color: #444444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Computer Modern", "Times New Roman", Times, serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            max-width: 850px;
             margin: 0 auto;
-            padding: 60px 30px;
-            background: #fafafa;
+            padding: 50px 40px;
+            text-align: justify;
+            counter-reset: section;
         }
-        header { 
-            border-bottom: 2px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 50px;
+
+        /* Typography */
+        h1 {
+            font-size: 2.2em;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 5px;
         }
-        h1 { 
-            font-size: 2.5em; 
-            font-weight: 400;
-            letter-spacing: -0.5px;
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            text-align: center;
+            font-size: 1em;
+            margin-bottom: 40px;
+        }
+
+        .contact a {
+            margin: 0 10px;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 40px 0 15px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            counter-increment: section;
+        }
+
+        h2::before {
+            content: counter(section) ". ";
+        }
+
+        h3 {
+            font-size: 1.15em;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dotted #000;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        ul {
+            margin: 10px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Layout components */
+        .entry {
+            margin-bottom: 25px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-weight: bold;
+        }
+
+        .entry-meta {
+            font-style: italic;
+            color: var(--meta-color);
+            text-align: right;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
             margin-bottom: 8px;
         }
-        .subtitle { 
-            font-size: 1.1em;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 12px;
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 0.9em;
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border: 1px solid #ddd;
         }
-        .contact { 
-            font-size: 0.95em;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            margin-top: 12px;
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .entry-header {
+                flex-direction: column;
+            }
+            .entry-meta {
+                text-align: left;
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 30px 20px;
+                text-align: left;
+            }
         }
-        .contact a { margin-right: 20px; }
-        h2 { 
-            font-size: 1.4em;
-            font-weight: 600;
-            margin: 50px 0 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        h3 { 
-            font-size: 1.2em;
-            font-weight: 600;
-            margin: 30px 0 8px;
-        }
-        .meta { 
-            color: #777;
-            font-size: 0.95em;
-            margin-bottom: 12px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        p { margin: 12px 0; }
-        ul { 
-            margin: 12px 0 12px 20px;
-        }
-        li { margin: 6px 0; }
-        a { 
-            color: #1a5490;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-        }
-        a:hover { border-bottom: 1px solid #1a5490; }
-        .links {
-            margin-top: 15px;
-            font-weight: 600;
-        }
-        .links a { margin-right: 20px; }
-        .achievement-list li {
-            margin: 10px 0;
-        }
-        .project { 
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .project:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Kannan Murugapandian</h1>
-        <p class="subtitle">Student • DPS International School, Singapore</p>
+        <p class="subtitle">AI Researcher & Developer | Speaker @ FOSSASIA '26 | Sole Finalist @ NOI & NCO</p>
         <div class="contact">
-            <a href="mailto:mkannan2k9@gmail.com">Email</a>
-            <a href="https://linkedin.com/in/mk029">LinkedIn</a>
-            <a href="https://github.com/mkannan2k9">GitHub</a>
-            <a href="https://mybookfield.wordpress.com">Blog</a>
+            <a href="mailto:mkannan2k9@gmail.com">mkannan2k9@gmail.com</a> | 
+            <a href="https://linkedin.com/in/mk029">LinkedIn</a> | 
+            <a href="https://github.com/mkannan2k9">GitHub</a> | 
+            <a href="https://speakerdeck.com/">Speaker Deck</a>
         </div>
+        <p>I am an 11th-grade student at DPS International School, Singapore, dividing my time between AI research, competitive informatics, and full-stack software development. My work focuses heavily on analyzing Large Language Model (LLM) limitations, building democratized EdTech solutions, and algorithmic problem-solving.</p>
     </header>
 
     <section>
-        <h2>Research & Competition</h2>
-        <p><strong>Student Researcher</strong>, The New York Academy of Sciences (NYAS) – The Junior Academy<br>
-        <span class="meta">September 2025 – November 2025</span></p>
-        <ul>
-            <li>Led development of Python simulation integrating real-time Weather and Gemini APIs to model energy efficiency across varying global climates</li>
-            <li>Validated system performance metrics using data-driven modeling, demonstrating theoretical 10–15% efficiency gain from thermal management</li>
-            <li>Conducted technical feasibility analysis to verify novelty of proposed hybrid storage solutions against existing patent data</li>
-        </ul>
+        <h2>Education & Academics</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">DPS International School</div>
+                <div class="entry-meta">Singapore | Jul 2016 – Expected Mar 2027</div>
+            </div>
+            <div class="entry-subtitle">Class 11 ISC (Indian School Certificate) | ICSE Class 10 Score: 93.2%</div>
+            <ul>
+                <li>Earned the sole merit-based qualification from my school for the competitive track at the National Coding Olympiad (NCO).</li>
+                <li>Represented the school as its sole finalist at the National Olympiad in Informatics (NOI) 2026.</li>
+                <li>Advanced to the Quarter Finals of the National STEM Championship (NSTEMC 2025) as part of a four-student team.</li>
+                <li><strong>Pre-College Admissions:</strong> Admitted to highly selective pre-college academic programs at Georgetown University, Northwestern University, Rice University, and Dartmouth College.</li>
+            </ul>
+        </div>
+    </section>
 
-        <p style="margin-top: 25px;"><strong>Competitive Programming Achievements</strong></p>
-        <ul class="achievement-list">
-            <li><strong>Silver Award</strong> – Singapore Informatics League (SIL) 2025</li>
-            <li><strong>Third Degree Diploma</strong> – NSUCRYPTO International Olympiad in Cryptography 2025</li>
-            <li><strong>Bronze Medal</strong> – National Olympiad in Informatics (NOI) 2024</li>
-            <li><strong>Certificate of Merit</strong> – National STEM Championship 2025 Quarter Finals (team of 4 representing DPSIS)</li>
-            <li><strong>State Medal (State Topper)</strong> – International Informatics Olympiad (iiO) 2023</li>
-            <li><strong>State Medal (Second in State)</strong> – International Informatics Olympiad (iiO) 2022</li>
-            <li><strong>Class Topper</strong> – International Informatics Olympiad (iiO) 2021</li>
-            <li><strong>CSARC Certified</strong> – Arduino Microcontroller (Grade 2)</li>
+    <section>
+        <h2>Publications & Talks</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Reasoning Over Recall: Why RAG Degrades Performance on Doctrinal Legal Tasks</div>
+                <div class="entry-meta">Draft Completed, 2026</div>
+            </div>
+            <p>Investigated how Large Language Models (LLMs) make mistakes when given incomplete information, testing popular models like ChatGPT, Gemini and Deepseek across 230+ real legal cases to understand how they fail. Discovered that AI systems blindly trust the provided context, even when it’s wrong, which leads to a 21% error rate in critical decisions in court trials.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Democratizing Personalized Learning using Open Source AI</div>
+                <div class="entry-meta">FOSSASIA Summit '26 / Medium</div>
+            </div>
+            <p>Presented at the FOSSASIA 2026 Summit. Explored the intersection of AI and Bloom’s 2 Sigma Problem, arguing that reliance on closed-source LLMs introduces severe privacy risks. Proposed a "Glass-Box Learning Architecture" utilizing locally-hosted, fine-tuned 7B open-source models via LoRA, combined with Verified Retrieval (RAG) and secondary guardrail classifiers to deploy cost-effective, Socratic AI.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Introduction to Digital Forensics</div>
+                <div class="entry-meta">DPS International School, Mar 2026</div>
+            </div>
+            <p>Designed and delivered a comprehensive cybersecurity presentation to junior students. Broke down the fundamentals of Digital Forensics for Capture The Flag (CTF) competitions, covering Magic Bytes, PCAP network analysis via Wireshark, LSB Steganography, and Disk Imaging using Autopsy.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Artificial Intelligence in Education</div>
+                <div class="entry-meta">Medium, Jun 2025</div>
+            </div>
+            <p>Authored a research article analyzing inequities in modern education systems, examining 18+ peer-reviewed studies on teacher quality disparities and curriculum biases. Proposed AI-powered personalized learning as a scalable solution.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experience & Leadership</h2>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Research Team Lead</div>
+                <div class="entry-meta">Sep 2025 – Nov 2025</div>
+            </div>
+            <div class="entry-subtitle">The Junior Academy, New York Academy of Sciences</div>
+            <ul>
+                <li>Selected as Team Lead (&lt;7% global acceptance rate), organizing workflows across the US, Singapore, and India to deliver a comprehensive renewable energy proposal.</li>
+                <li>Led the development of Python simulations integrating real-time weather and Gemini APIs to model energy efficiency across global climates.</li>
+                <li>Designed a hybrid energy solution featuring self-cooling floating solar farms and BIPV, utilizing data-driven modeling to demonstrate a 15% efficiency boost over standard grids.</li>
+                <li>Co-authored a feasibility study validating a unique chemical storage system capable of powering cities for 12 hours after sunset.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Co-Founder & Co-Head</div>
+                <div class="entry-meta">Dec 2021 – Oct 2024</div>
+            </div>
+            <div class="entry-subtitle">Earth Status (Youth Climate Action Initiative)</div>
+            <ul>
+                <li>Co-founded a youth-led environmental campaign to make climate change education accessible.</li>
+                <li>Led the technical development and successful launch of the Earth Status mobile application on the Google Play Store, alongside a WordPress blog infrastructure.</li>
+                <li>Directed digital strategy across LinkedIn, YouTube, and WhatsApp, managing a cross-functional content team to design promotional posters and script video content.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Museum Ambassador</div>
+                <div class="entry-meta">Aug 2025 – Present</div>
+            </div>
+            <div class="entry-subtitle">HeritageSG, National Heritage Board</div>
+            <ul>
+                <li>Serve as a public-facing representative at Singapore’s national museums, guiding diverse audiences through exhibitions and facilitating interactive learning experiences.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Honors & Awards</h2>
+        <ul>
+            <li><strong>Speaker</strong> – Free and Open Source Software in Asia (FOSSASIA) Summit 2026.</li>
+            <li><strong>Sole School Finalist</strong> – National Olympiad in Informatics (NOI) 2026.</li>
+            <li><strong>Sole Merit Qualifier</strong> – National Coding Olympiad (NCO) Competitive Track 2026.</li>
+            <li><strong>Third Degree Diploma</strong> – NSUCRYPTO International Olympiad in Cryptography 2025.</li>
+            <li><strong>Silver Award</strong> – Singapore Informatics League (SIL) 2025.</li>
+            <li><strong>Bronze Medalist</strong> – National Olympiad in Informatics (NOI) 2024.</li>
+            <li><strong>State Topper (Gold Medalist)</strong> – International Informatics Olympiad (iiO) 2023 & 2024.</li>
+            <li><strong>Quarter Finalist</strong> – National STEM Championship 2025.</li>
+            <li><strong>Kindness Leader Award</strong> – Friends of Singa (Specially awarded in 2023 and 2025).</li>
+            <li><strong>School Ambassador</strong> – World Wide Fund for Nature (WWF) 2025.</li>
         </ul>
     </section>
 
     <section>
         <h2>Technical Projects</h2>
 
-        <div class="project">
-            <h3>DonumAI</h3>
-            <p class="meta">AI-Powered Personalized Lesson Constructor • August 2023 – Present</p>
-            <p>Educational technology platform addressing inequality in access to qualified teaching. Built to generate personalized lessons tailored to individual student comprehension levels across different grades and subjects.</p>
-            <p><strong>Technical implementation:</strong> Flask backend integrating Google Gemini API with custom JSON-to-Markdown parsers for dynamic content rendering. Client-side JavaScript handles user input processing and manages API latency for real-time lesson generation.</p>
-            <p><strong>Key features:</strong> Adaptive difficulty scaling, bias-free instruction delivery, multi-grade curriculum support (elementary through advanced).</p>
-            <p><strong>Presented at:</strong> DPSIS Tech Week 2023, DPSIS January 2024 Open House Exhibition</p>
-            <div class="links">
-                <a href="https://donumai.pythonanywhere.com/">Live Demo</a>
-                <a href="https://github.com/mkannan2k9">GitHub</a>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">LeginAI | Multi-LLM Reasoning System</div>
             </div>
+            <p>Orchestrated a 9-agent consensus workflow using voting logic to minimize hallucinations in legal verdict generation. Implemented a robust Retrieval-Augmented Generation (RAG) pipeline to automatically retrieve and ground agent outputs strictly within uploaded legal statutes.</p>
         </div>
 
-        <div class="project">
-            <h3>LegisAI</h3>
-            <p class="meta">Multi-Agent Legal Verdict System</p>
-            <p>Orchestrated 9-agent consensus workflow in n8n using voting logic to minimize hallucinations in legal verdict generation. Implemented Retrieval-Augmented Generation (RAG) pipeline to automatically retrieve and ground agent outputs in uploaded legal statutes.</p>
-            <p><strong>Technical approach:</strong> Agent-based architecture with consensus voting mechanism ensures output reliability. RAG integration provides verifiable legal grounding for generated verdicts.</p>
-            <div class="links">
-                <a href="https://github.com/mkannan2k9">GitHub</a>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">DonumAI | AI-Powered Teaching Assistant</div>
             </div>
+            <p>Developed an educational technology platform addressing teaching inequality by generating personalized lessons tailored to student comprehension levels. Implemented a Flask backend integrating the Google Gemini API with custom JSON-to-Markdown parsers for dynamic, real-time content rendering.</p>
         </div>
 
-        <div class="project">
-            <h3>MittentisAI</h3>
-            <p class="meta">Narrative Generation Engine</p>
-            <p>Storytelling engine using modular prompt chaining to enforce narrative consistency across 9 distinct genres. Engineered to maintain coherent plot development and character consistency through multi-step generation process.</p>
-            <div class="links">
-                <a href="https://github.com/mkannan2k9">Live Demo</a>
-                <a href="https://github.com/mkannan2k9">GitHub</a>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">MittentisAI | Narrative Generation Engine</div>
             </div>
+            <p>Engineered a storytelling engine utilizing modular prompt chaining to enforce narrative consistency across 9 distinct genres, maintaining coherent plot development through a multi-step generation process.</p>
         </div>
 
-        <div class="project">
-            <h3>EZTime</h3>
-            <p class="meta">Apparent Solar Time Calculator • September 2022 – Present</p>
-            <p>Research tool calculating apparent solar time based on user longitude to investigate effects of solar alignment on human circadian rhythms. Implements correction for Earth's elliptical orbit and axial tilt.</p>
-            <p><strong>Formula:</strong> Apparent Solar Time = Standard Time + (4 × (Longitude - Standard Meridian))</p>
-            <p>Built to enable data collection on correlation between solar time and biological clock synchronization.</p>
-            <div class="links">
-                <a href="https://eztime.pythonanywhere.com/">Live Demo</a>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">PlantyyGo | Plant Detection Web App</div>
             </div>
-        </div>
-
-        <div class="project">
-            <h3>Earth Status</h3>
-            <p class="meta">Co-Founder & Co-Head • December 2021 – October 2024</p>
-            <p>Climate awareness initiative with integrated mobile application (Android), blog platform, and multi-channel social media campaigns (LinkedIn, YouTube, WhatsApp).</p>
-            <p><strong>Technical contributions:</strong> Led mobile app development and deployment to Google Play Store. Established WordPress-based content platform. Designed visual campaign materials and managed digital presence across multiple platforms.</p>
-            <div class="links">
-                <a href="https://earthstatus.wordpress.com/">Website (Archived)</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <h3>Save The Earth Programme (STEP)</h3>
-            <p class="meta">Web & Content Developer • October 2021 – December 2021</p>
-            <p>Environmental education initiative. Developed blog platform, created interactive webinar presentation materials, and designed educational game for participant engagement.</p>
-            <div class="links">
-                <a href="https://savetheearthprogramme.wordpress.com/">Website (Archived)</a>
-            </div>
+            <p>Led the technical architecture of the PlantyyGo platform. Oversaw website operations, managed the technical team, and conceptualized interactive features to ensure high performance and scalability.</p>
         </div>
     </section>
 
     <section>
-        <h2>Additional Activities</h2>
-        <p><strong>Museum Ambassador</strong>, Heritage SG – August 2025 – Present<br>
-        Promoting arts and culture through museum program support and visitor engagement.</p>
-        
-        <p style="margin-top: 15px;"><strong>School Activity Organiser</strong>, World Wildlife Fund (WWF) – April 2025 – August 2025<br>
-        Led awareness campaign on plastic consumption through documentary screenings and interactive activities. Part of team that earned WWF-Singapore Eco-Schools Bronze Award 2025.</p>
-
-        <p style="margin-top: 15px;"><strong>Cybersafety Presenter</strong> – Delivered cybersecurity awareness talk to 250+ peers at DPSIS.</p>
+        <h2>Certifications & Coursework</h2>
+        <ul>
+            <li><strong>CSARC Certified:</strong> Arduino Microcontroller (Grade 2) - <em>Formal hardware certification</em></li>
+            <li><strong>Core Languages & Tools:</strong> Python, C++, C, Java, Flask, Django, Git, Linux.</li>
+            <li><strong>Completed Coursework:</strong> Introduction to Raspberry Pi (Eduonix), Learn Intermediate Python3 (Udemy), Linux for Absolute Beginners (Eduonix), White Hat Hacker and Pen Tester (Eduonix), Git for Beginners.</li>
+            <li><strong>Logic Coders:</strong> Core Coding Logic Program (Levels 1 & 2).</li>
+            <li><strong>Environmental Certifications:</strong> WWF Certificate of Completion, Sembcorp Marine Green Wave Environmental Care Project.</li>
+        </ul>
     </section>
 
     <section>
-        <h2>Technical Skills</h2>
-        <p><strong>Languages:</strong> Python, C++, C, Java</p>
-        <p><strong>Frameworks & Tools:</strong> Flask, Django, Git, Linux, Arduino</p>
-        <p><strong>Specializations:</strong> Competitive programming, AI/ML prototyping, Web/App development, Generative AI integration</p>
+        <h2>Archive (Earlier Works & Projects)</h2>
+        <div class="entry">
+            <p><strong>EZTime (Apparent Solar Time Calculator):</strong> Built a research tool utilizing Python and geospatial technology to calculate apparent solar time based on user longitude. Corrects for Earth's elliptical orbit to enable data collection on solar time and biological clock synchronization.</p>
+            <p><strong>Save The Earth Programme (STEP):</strong> Served as Web Developer, managing the technology landscape, deploying a dynamic promotional blog, and designing interactive digital games for environmental webinars (Oct 2021 - Dec 2021).</p>
+            <p><strong>Middle School Public Speaking:</strong> Delivered a technical presentation on Phishing Websites and cybersecurity to 250+ peers. Nominated for Science Buskers (AY 2021-22) for scientific communication.</p>
+        </div>
     </section>
 
-    <section>
-        <h2>Education</h2>
-        <p><strong>DPS International School, Singapore</strong><br>
-        ISC (Indian School Certificate) – Expected March 2027<br>
-        ICSE (Indian Certificate of Secondary Education) – March 2025 (93.2%)</p>
-    </section>
 </body>
 </html>
