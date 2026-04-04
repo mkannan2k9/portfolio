@@ -131,6 +131,15 @@
             border: 1px solid #ddd;
         }
 
+        .project-links {
+            margin-top: 6px;
+            font-size: 0.95em;
+        }
+
+        .project-links a {
+            margin-right: 12px;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .entry-header {
@@ -151,13 +160,13 @@
 
     <header>
         <h1>Kannan Murugapandian</h1>
-        <p class="subtitle">AI Researcher & Developer</p>
+        <p class="subtitle">AI Researcher & Developer | Speaker @ FOSSASIA '26</p>
         <div class="contact">
+            <a href="mailto:mkannan2k9@gmail.com">mkannan2k9@gmail.com</a> | 
             <a href="https://linkedin.com/in/mk029" target="_blank">LinkedIn</a> | 
             <a href="https://github.com/mkannan2k9" target="_blank">GitHub</a> | 
             <a href="https://speakerdeck.com/mkannan2k9" target="_blank">Speaker Deck</a> |
-            <a href="https://orcid.org/0009-0005-9412-7073" target="_blank">ORCID</a> | 
-            <a href="https://scholar.google.com/citations?user=hITTMwsAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a href="https://orcid.org/0009-0005-9412-7073" target="_blank">ORCID</a>
         </div>
         <p>I am an 11th-grade student at DPS International School, Singapore, dividing my time between AI research, competitive informatics, and full-stack software development. My work focuses heavily on analyzing Large Language Model (LLM) limitations, building democratized EdTech solutions, and algorithmic problem-solving.</p>
     </header>
@@ -189,19 +198,19 @@
             <div class="entry-subtitle">
                 <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Murugapandian,+Kannan%22" target="_blank">Murugapandian, Kannan</a>
             </div>
-            <p>The widespread deployment of Large Language Model (LLM) inference APIs presents a fundamental economic challenge: the near-total redundancy of user queries drives operational costs that scale linearly with the number of requests, regardless of semantic overlap between them. This paper proposes and formally analyses a novel four-layer architecture—the Crowdsourced Semantic Cache Network (CSCN)—that addresses this challenge through three complementary mechanisms: (i) a globally shared semantic vector database that intercepts semantically equivalent queries before they reach the inference layer; (ii) a user-triggered, single-token LLM-as-judge validation gate that replaces time-based cache invalidation with demand-driven accuracy verification; and (iii) a freemium token-economics model that converts user payments into a compounding, community-maintained knowledge graph. We formalise the architecture using cosine similarity over high-dimensional embedding spaces, develop closed-form cost models for all system states, and derive an expected daily savings function S(N,H) across the full range of empirically observed cache hit rates. Under conservative production parameters (N = 1000000 queries per day, H = 0.40), the CSCN yields a 39.9986% reduction in raw LLM API expenditure; under optimistic but achievable parameters (H = 0.67), savings reach 66.9977% of baseline cost. Validation calls are shown to be approximately 2.8827× cheaper than full generation calls, enabling a gross margin of approximately 27.5% on paid-tier operations. The architecture is further demonstrated to exhibit positive network externalities, wherein marginal inference cost approaches zero as the knowledge base grows.</p>
+            <p>The widespread deployment of Large Language Model (LLM) inference APIs presents a fundamental economic challenge: the near-total redundancy of user queries drives operational costs that scale linearly with the number of requests, regardless of semantic overlap between them. This paper proposes and formally analyses a novel four-layer architecture—the Crowdsourced Semantic Cache Network (CSCN)—that addresses this challenge through three complementary mechanisms: (i) a globally shared semantic vector database that intercepts semantically equivalent queries before they reach the inference layer; (ii) a user-triggered, single-token LLM-as-judge validation gate that replaces time-based cache invalidation with demand-driven accuracy verification; and (iii) a freemium token-economics model that converts user payments into a compounding, community-maintained knowledge graph. We formalise the architecture using cosine similarity over high-dimensional embedding spaces, develop closed-form cost models for all system states, and derive an expected daily savings function S(N,H) across the full range of empirically observed cache hit rates. Under conservative production parameters (N = 1,000,000 queries per day, H = 0.40), the CSCN yields a 39.9986% reduction in raw LLM API expenditure; under optimistic but achievable parameters (H = 0.67), savings reach 66.9977% of baseline cost. Validation calls are shown to be approximately 2.8827× cheaper than full generation calls, enabling a gross margin of approximately 27.5% on paid-tier operations. The architecture is further demonstrated to exhibit positive network externalities, wherein marginal inference cost approaches zero as the knowledge base grows.</p>
             <p>
-                <a href="https://doi.org/10.5281/zenodo.19401231" target="_blank">[DOI: 10.5281/zenodo.19401231]</a> |
-                <a href="https://medium.com/@mkannan2k9/how-i-designed-a-new-internet-for-ai-to-cut-llm-api-costs-by-67-03bab17a1af0" target="_blank">[Medium Article Breakdown]</a>
+                <a href="https://doi.org/10.5281/zenodo.19401231" target="_blank">[DOI: 10.5281/zenodo.19401231]</a> &nbsp;|&nbsp;
+                <a href="https://medium.com/@mkannan2k9/how-i-designed-a-new-internet-for-ai-to-cut-llm-api-costs-by-67-03bab17a1af0" target="_blank">[Plain English Breakdown]</a>
             </p>
         </div>
-        
+
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-title">Reasoning Over Recall: Why RAG Degrades Performance on Doctrinal Legal Tasks</div>
                 <div class="entry-meta">Draft Completed, 2026</div>
             </div>
-            <p>Investigated how Large Language Models (LLMs) make mistakes when given incomplete information, testing popular models like ChatGPT, Gemini and Deepseek across 230+ real legal cases to understand how they fail. Discovered that AI systems blindly trust the provided context, even when it’s wrong, which leads to a 21% error rate in critical decisions in court trials.</p>
+            <p>Investigated how Large Language Models (LLMs) make mistakes when given incomplete information, testing popular models like ChatGPT, Gemini and Deepseek across 230+ real legal cases to understand how they fail. Discovered that AI systems blindly trust the provided context, even when it's wrong, which leads to a 21% error rate in critical decisions in court trials.</p>
         </div>
 
         <div class="entry">
@@ -209,7 +218,7 @@
                 <div class="entry-title">Democratizing Personalized Learning using Open Source AI</div>
                 <div class="entry-meta">FOSSASIA Summit '26 / Medium</div>
             </div>
-            <p>Presented at the FOSSASIA 2026 Summit. Explored the intersection of AI and Bloom’s 2 Sigma Problem, arguing that reliance on closed-source LLMs introduces severe privacy risks. Proposed a "Glass-Box Learning Architecture" utilizing locally-hosted, fine-tuned 7B open-source models via LoRA, combined with Verified Retrieval (RAG) and secondary guardrail classifiers to deploy cost-effective, Socratic AI.</p>
+            <p>Presented at the FOSSASIA 2026 Summit. Explored the intersection of AI and Bloom's 2 Sigma Problem, arguing that reliance on closed-source LLMs introduces severe privacy risks. Proposed a "Glass-Box Learning Architecture" utilizing locally-hosted, fine-tuned 7B open-source models via LoRA, combined with Verified Retrieval (RAG) and secondary guardrail classifiers to deploy cost-effective, Socratic AI.</p>
             <p><a href="https://speakerdeck.com/mkannan2k9/democratizing-personalized-learning-with-open-source-ai" target="_blank">[View Presentation Slides]</a></p>
         </div>
 
@@ -268,7 +277,7 @@
             </div>
             <div class="entry-subtitle">HeritageSG, National Heritage Board</div>
             <ul>
-                <li>Serve as a public-facing representative at Singapore’s national museums, guiding diverse audiences through exhibitions and facilitating interactive learning experiences.</li>
+                <li>Serve as a public-facing representative at Singapore's national museums, guiding diverse audiences through exhibitions and facilitating interactive learning experiences.</li>
             </ul>
         </div>
     </section>
@@ -277,7 +286,7 @@
         <h2>Honors & Awards</h2>
         <ul>
             <li><strong>Speaker</strong> – Free and Open Source Software in Asia (FOSSASIA) Summit 2026.</li>
-            <li><strong>Sole Merit Qualifier</strong> – National Cybersecurity Olympiad (NCO) Competitive Track 2026.</li>
+            <li><strong>Sole Merit Qualifier</strong> – National Coding Olympiad (NCO) Competitive Track 2026.</li>
             <li><strong>Third Degree Diploma</strong> – NSUCRYPTO International Olympiad in Cryptography 2025.</li>
             <li><strong>Silver Award</strong> – Singapore Informatics League (SIL) 2025.</li>
             <li><strong>Bronze Medalist</strong> – National Olympiad in Informatics (NOI) 2024.</li>
@@ -303,6 +312,19 @@
                 <div class="entry-title">DonumAI | AI-Powered Teaching Assistant</div>
             </div>
             <p>Developed an educational technology platform addressing teaching inequality by generating personalized lessons tailored to student comprehension levels. Implemented a Flask backend integrating the Google Gemini API with custom JSON-to-Markdown parsers for dynamic, real-time content rendering.</p>
+            <div class="project-links">
+                <a href="https://donumai.pythonanywhere.com/" target="_blank">[Live Demo]</a>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Learn with DonumAI | AI-Curated Knowledge Podcast</div>
+            </div>
+            <p>A daily podcast series produced in conjunction with the DonumAI platform, designed to make structured, AI-curated knowledge accessible in an audio format. Each episode distills lesser-known scientific phenomena, overlooked historical events, and interdisciplinary insights into concise, research-backed segments. The series targets intellectually curious listeners seeking substantive content beyond mainstream discourse, combining the precision of AI-assisted curation with accessible science communication.</p>
+            <div class="project-links">
+                <a href="https://donumai.podbean.com/" target="_blank">[Listen on Podbean]</a>
+            </div>
         </div>
 
         <div class="entry">
@@ -310,6 +332,9 @@
                 <div class="entry-title">MittentisAI | Narrative Generation Engine</div>
             </div>
             <p>Engineered a storytelling engine utilizing modular prompt chaining to enforce narrative consistency across 9 distinct genres, maintaining coherent plot development through a multi-step generation process.</p>
+            <div class="project-links">
+                <a href="https://mittentisai.pythonanywhere.com/" target="_blank">[Live Demo]</a>
+            </div>
         </div>
 
         <div class="entry">
@@ -340,12 +365,5 @@
         </div>
     </section>
 
-    <section>
-        <h2>Contact</h2>
-        <div class="entry">
-            <p>You can contact me at <a href="mailto:mkannan2k9@gmail.com">mkannan2k9@gmail.com</a></p>
-        </div>
-    </section>
-    
 </body>
 </html>
