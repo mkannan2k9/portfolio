@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kannan Murugapandian - Portfolio</title>
     <style>
-        /* LaTeX-style CSS Reset & Variables */
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
@@ -31,7 +30,6 @@
             counter-reset: section;
         }
 
-        /* Typography */
         h1 {
             font-size: 2.2em;
             font-weight: normal;
@@ -96,7 +94,6 @@
             margin-bottom: 5px;
         }
 
-        /* Layout components */
         .entry {
             margin-bottom: 25px;
         }
@@ -131,7 +128,6 @@
             border: 1px solid #ddd;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .entry-header {
                 flex-direction: column;
@@ -151,12 +147,13 @@
 
     <header>
         <h1>Kannan Murugapandian</h1>
-        <p class="subtitle">AI Researcher & Developer | Speaker @ FOSSASIA '26 | Sole Finalist @ NOI & NCO</p>
+        <p class="subtitle">AI Researcher & Developer | Speaker @ FOSSASIA '26</p>
         <div class="contact">
             <a href="mailto:mkannan2k9@gmail.com">mkannan2k9@gmail.com</a> | 
-            <a href="https://linkedin.com/in/mk029">LinkedIn</a> | 
-            <a href="https://github.com/mkannan2k9">GitHub</a> | 
-            <a href="https://speakerdeck.com/">Speaker Deck</a>
+            <a href="https://linkedin.com/in/mk029" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/mkannan2k9" target="_blank">GitHub</a> | 
+            <a href="https://speakerdeck.com/mkannan2k9" target="_blank">Speaker Deck</a> |
+            <a href="https://orcid.org/0009-0005-9412-7073" target="_blank">ORCID</a>
         </div>
         <p>I am an 11th-grade student at DPS International School, Singapore, dividing my time between AI research, competitive informatics, and full-stack software development. My work focuses heavily on analyzing Large Language Model (LLM) limitations, building democratized EdTech solutions, and algorithmic problem-solving.</p>
     </header>
@@ -171,7 +168,6 @@
             <div class="entry-subtitle">Class 11 ISC (Indian School Certificate)</div>
             <ul>
                 <li>Earned the sole merit-based qualification from my school for the competitive track at the National Coding Olympiad (NCO).</li>
-                <li>Represented the school as its sole finalist at the National Olympiad in Informatics (NOI) 2026.</li>
                 <li>Advanced to the Quarter Finals of the National STEM Championship (NSTEMC 2025) as part of a four-student team.</li>
                 <li><strong>Pre-College Admissions:</strong> Admitted to highly selective pre-college academic programs at Georgetown University, Northwestern University, Rice University, and Dartmouth College.</li>
             </ul>
@@ -180,6 +176,21 @@
 
     <section>
         <h2>Publications & Talks</h2>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Crowdsourced Semantic Cache Network: A Distributed, User-Funded Knowledge Network for Cost-Efficient and Self-Correcting LLM Inference</div>
+                <div class="entry-meta">Preprint, 2026</div>
+            </div>
+            <div class="entry-subtitle">
+                <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Murugapandian,+Kannan%22" target="_blank">Murugapandian, Kannan</a>
+            </div>
+            <p>The widespread deployment of Large Language Model (LLM) inference APIs presents a fundamental economic challenge: the near-total redundancy of user queries drives operational costs that scale linearly with the number of requests, regardless of semantic overlap between them. This paper proposes and formally analyses a novel four-layer architecture—the Crowdsourced Semantic Cache Network (CSCN)—that addresses this challenge through three complementary mechanisms: (i) a globally shared semantic vector database that intercepts semantically equivalent queries before they reach the inference layer; (ii) a user-triggered, single-token LLM-as-judge validation gate that replaces time-based cache invalidation with demand-driven accuracy verification; and (iii) a freemium token-economics model that converts user payments into a compounding, community-maintained knowledge graph. We formalise the architecture using cosine similarity over high-dimensional embedding spaces, develop closed-form cost models for all system states, and derive an expected daily savings function S(N,H) across the full range of empirically observed cache hit rates. Under conservative production parameters (N = 1000000 queries per day, H = 0.40), the CSCN yields a 39.9986% reduction in raw LLM API expenditure; under optimistic but achievable parameters (H = 0.67), savings reach 66.9977% of baseline cost. Validation calls are shown to be approximately 2.8827× cheaper than full generation calls, enabling a gross margin of approximately 27.5% on paid-tier operations. The architecture is further demonstrated to exhibit positive network externalities, wherein marginal inference cost approaches zero as the knowledge base grows.</p>
+            <p>
+                <a href="https://doi.org/10.5281/zenodo.19401231" target="_blank">[DOI: 10.5281/zenodo.19401231]</a> |
+                <a href="https://medium.com/@mkannan2k9/how-i-designed-a-new-internet-for-ai-to-cut-llm-api-costs-by-67-03bab17a1af0" target="_blank">[Medium Article Breakdown]</a>
+            </p>
+        </div>
         
         <div class="entry">
             <div class="entry-header">
@@ -195,6 +206,7 @@
                 <div class="entry-meta">FOSSASIA Summit '26 / Medium</div>
             </div>
             <p>Presented at the FOSSASIA 2026 Summit. Explored the intersection of AI and Bloom’s 2 Sigma Problem, arguing that reliance on closed-source LLMs introduces severe privacy risks. Proposed a "Glass-Box Learning Architecture" utilizing locally-hosted, fine-tuned 7B open-source models via LoRA, combined with Verified Retrieval (RAG) and secondary guardrail classifiers to deploy cost-effective, Socratic AI.</p>
+            <p><a href="https://speakerdeck.com/mkannan2k9/democratizing-personalized-learning-with-open-source-ai" target="_blank">[View Presentation Slides]</a></p>
         </div>
 
         <div class="entry">
@@ -203,6 +215,7 @@
                 <div class="entry-meta">DPS International School, Mar 2026</div>
             </div>
             <p>Designed and delivered a comprehensive cybersecurity presentation to junior students. Broke down the fundamentals of Digital Forensics for Capture The Flag (CTF) competitions, covering Magic Bytes, PCAP network analysis via Wireshark, LSB Steganography, and Disk Imaging using Autopsy.</p>
+            <p><a href="https://speakerdeck.com/mkannan2k9/introduction-to-digital-forensics" target="_blank">[View Presentation Slides]</a></p>
         </div>
 
         <div class="entry">
@@ -260,7 +273,6 @@
         <h2>Honors & Awards</h2>
         <ul>
             <li><strong>Speaker</strong> – Free and Open Source Software in Asia (FOSSASIA) Summit 2026.</li>
-            <li><strong>Sole School Finalist</strong> – National Olympiad in Informatics (NOI) 2026.</li>
             <li><strong>Sole Merit Qualifier</strong> – National Coding Olympiad (NCO) Competitive Track 2026.</li>
             <li><strong>Third Degree Diploma</strong> – NSUCRYPTO International Olympiad in Cryptography 2025.</li>
             <li><strong>Silver Award</strong> – Singapore Informatics League (SIL) 2025.</li>
